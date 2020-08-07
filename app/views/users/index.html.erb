@@ -1,5 +1,6 @@
 <h1 align="center">All Alpha Bloggers</h1>
 
+<%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: "d-flex justify-content-center") %>
 <% @users.each do |user| %>
   <ul class="list-unstyled text-center mt-3">
     <div class="row justify-content-center">
@@ -13,3 +14,4 @@
     </div>
   </ul>
 <% end %>
+<%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: "mt-4 d-flex justify-content-center") %>
