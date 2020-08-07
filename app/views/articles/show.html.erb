@@ -1,6 +1,20 @@
 <h2 align="center">Title: <%= @article.title %></h2>
 
 <div class="card col-sm-12 bg-light p-3">
+  <% if @article.user %>
+    <ul class="list-unstyled text-center">
+      <div class="row justify-content-center">
+        <div class="col-md-4 bg-light">
+          <li>Created by:</li>
+          <li><%= link_to gravatar_for(@article.user), user_path(@article.user) %></li>
+          <li class="article-title">
+            <%= link_to @article.user.username, user_path(@article.user) %>
+          </li>
+          <li><small><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></small></li>
+        </div>
+      </div>
+    </ul>
+  <% end %>
   <div class="center"><strong>Description</strong></div>
   <hr>
   <%= simple_format(@article.description) %>
